@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[switch $1 {
+	$0
+}]]></content>
+    <tabTrigger>sw</tabTrigger>
+    <scope>source.swift</scope>
+    <description>switch</description>
+</snippet>

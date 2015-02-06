@@ -1,0 +1,9 @@
+<snippet>
+    <content><![CDATA[${1:func} ${2:method}($3) ${4:-> $5 }{
+	$0
+}
+]]></content>
+    <tabTrigger>m</tabTrigger>
+    <scope>source.swift</scope>
+    <description>method</description>
+</snippet>

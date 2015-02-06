@@ -1,0 +1,13 @@
+{
+  "name": "Swift for F*ing Sublime",
+  "description": "Based on the builtin Java package.  Excellent //MARK and Goto-Symbol support",
+  "author": "Colin T.A. Gray (colinta)",
+  "details": "https://github.com/colinta/Swift-for-f-ing-sublime",
+  "labels": ["language syntax"],
+  "releases": [
+    {
+      "sublime_text": "*",
+      "details": "https://github.com/colinta/Swift-for-f-ing-sublime/tags"
+    }
+  ]
+}

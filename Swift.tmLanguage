@@ -577,7 +577,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>\s*((// *MARK:).*$)</string>
+					<string>\s*((// *MARK:).*$\n?)</string>
 				</dict>
 				<dict>
 					<key>captures</key>
@@ -594,7 +594,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>\s*((//).*$)</string>
+					<string>\s*((//).*$\n?)</string>
 				</dict>
 			</array>
 		</dict>
@@ -610,7 +610,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b(this|super)\b</string>
+					<string>\b(self|super)\b</string>
 					<key>name</key>
 					<string>variable.language.swift</string>
 				</dict>
@@ -1020,7 +1020,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(override|required|public|private|func|protected|static|final|native|synchronized|abstract|threadsafe|transient)\b</string>
+			<string>\b(override|required|static|public|private|protected|var|let|func)\b</string>
 		</dict>
 		<key>strings</key>
 		<dict>
@@ -1052,38 +1052,21 @@
 					<key>patterns</key>
 					<array>
 						<dict>
-							<key>match</key>
-							<string>\\.</string>
+							<key>begin</key>
+							<string>\\\(</string>
+							<key>end</key>
+							<string>\)</string>
 							<key>name</key>
-							<string>constant.character.escape.swift</string>
+							<string>source.swift.embedded.source</string>
+							<key>captures</key>
+							<dict>
+								<key>0</key>
+								<dict>
+									<key>name</key>
+									<string>keyword.operator.swift</string>
+								</dict>
+							</dict>
 						</dict>
-					</array>
-				</dict>
-				<dict>
-					<key>begin</key>
-					<string>'</string>
-					<key>beginCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.string.begin.swift</string>
-						</dict>
-					</dict>
-					<key>end</key>
-					<string>'</string>
-					<key>endCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.string.end.swift</string>
-						</dict>
-					</dict>
-					<key>name</key>
-					<string>string.quoted.single.swift</string>
-					<key>patterns</key>
-					<array>
 						<dict>
 							<key>match</key>
 							<string>\\.</string>

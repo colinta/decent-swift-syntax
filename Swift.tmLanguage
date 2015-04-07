@@ -562,7 +562,7 @@
 					<key>end</key>
 					<string>=|$</string>
 					<key>name</key>
-					<string>variable-declaration.swift</string>
+					<string>variable.swift</string>
 					<key>patterns</key>
 					<array>
 						<dict>

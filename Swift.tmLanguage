@@ -6,330 +6,28 @@
 	<array>
 		<string>swift</string>
 	</array>
-	<key>foldingStartMarker</key>
-	<string>(\{\s*(//.*)?$|^\s*// \{\{\{)</string>
-	<key>foldingStopMarker</key>
-	<string>^\s*(\}|// \}\}\}$)</string>
-	<key>keyEquivalent</key>
-	<string>^~S</string>
 	<key>name</key>
-	<string>Swift</string>
+	<string>Swiftish</string>
 	<key>patterns</key>
 	<array>
 		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.other.package.swift</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>storage.modifier.package.swift</string>
-				</dict>
-				<key>3</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.terminator.swift</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>^\s*(package)\b(?:\s*([^ $]+)\s*)?</string>
-			<key>name</key>
-			<string>meta.package.swift</string>
-		</dict>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.other.import.swift</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>storage.modifier.import.swift</string>
-				</dict>
-				<key>3</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.terminator.swift</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>^\s*(import)\b(?:\s*([^ $]+)\s*)?</string>
-			<key>name</key>
-			<string>meta.import.swift</string>
-		</dict>
-		<dict>
 			<key>include</key>
-			<string>#code</string>
+			<string>#statement</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>^\s*$</string>
 		</dict>
 	</array>
 	<key>repository</key>
 	<dict>
-		<key>all-types</key>
+		<key>attribute</key>
 		<dict>
 			<key>patterns</key>
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#primitive-arrays</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#primitive-types</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#object-types</string>
-				</dict>
-			</array>
-		</dict>
-		<key>annotations</key>
-		<dict>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>begin</key>
-					<string>(@[^ (]+)(\()</string>
-					<key>beginCaptures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>storage.type.annotation.swift</string>
-						</dict>
-						<key>2</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.annotation-arguments.begin.swift</string>
-						</dict>
-					</dict>
-					<key>end</key>
-					<string>(\))</string>
-					<key>endCaptures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.annotation-arguments.end.swift</string>
-						</dict>
-					</dict>
-					<key>name</key>
-					<string>meta.declaration.annotation.swift</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>captures</key>
-							<dict>
-								<key>1</key>
-								<dict>
-									<key>name</key>
-									<string>constant.other.key.swift</string>
-								</dict>
-								<key>2</key>
-								<dict>
-									<key>name</key>
-									<string>keyword.operator.assignment.swift</string>
-								</dict>
-							</dict>
-							<key>match</key>
-							<string>(\w*)\s*(=)</string>
-						</dict>
-						<dict>
-							<key>include</key>
-							<string>#code</string>
-						</dict>
-						<dict>
-							<key>match</key>
-							<string>,</string>
-							<key>name</key>
-							<string>punctuation.seperator.property.swift</string>
-						</dict>
-					</array>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>@\w*</string>
-					<key>name</key>
-					<string>storage.type.annotation.swift</string>
-				</dict>
-			</array>
-		</dict>
-		<key>anonymous-classes-and-new</key>
-		<dict>
-			<key>begin</key>
-			<string>\bnew\b</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.control.new.swift</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>(?&lt;=\)|\])(?!\s*{)|(?&lt;=})</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>begin</key>
-					<string>(\w+)\s*(?=\[)</string>
-					<key>beginCaptures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>storage.type.swift</string>
-						</dict>
-					</dict>
-					<key>end</key>
-					<string>}|(?=\))</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>begin</key>
-							<string>\[</string>
-							<key>end</key>
-							<string>\]</string>
-							<key>patterns</key>
-							<array>
-								<dict>
-									<key>include</key>
-									<string>#code</string>
-								</dict>
-							</array>
-						</dict>
-						<dict>
-							<key>begin</key>
-							<string>{</string>
-							<key>end</key>
-							<string>(?=})</string>
-							<key>patterns</key>
-							<array>
-								<dict>
-									<key>include</key>
-									<string>#code</string>
-								</dict>
-							</array>
-						</dict>
-					</array>
-				</dict>
-				<dict>
-					<key>begin</key>
-					<string>(?=\w.*\()</string>
-					<key>end</key>
-					<string>(?&lt;=\))</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>include</key>
-							<string>#object-types</string>
-						</dict>
-						<dict>
-							<key>begin</key>
-							<string>\(</string>
-							<key>beginCaptures</key>
-							<dict>
-								<key>1</key>
-								<dict>
-									<key>name</key>
-									<string>storage.type.swift</string>
-								</dict>
-							</dict>
-							<key>end</key>
-							<string>\)</string>
-							<key>patterns</key>
-							<array>
-								<dict>
-									<key>include</key>
-									<string>#code</string>
-								</dict>
-							</array>
-						</dict>
-					</array>
-				</dict>
-				<dict>
-					<key>begin</key>
-					<string>{</string>
-					<key>end</key>
-					<string>}</string>
-					<key>name</key>
-					<string>meta.inner-class.swift</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>include</key>
-							<string>#class-body</string>
-						</dict>
-					</array>
-				</dict>
-			</array>
-		</dict>
-		<key>assertions</key>
-		<dict>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>begin</key>
-					<string>\b(assert)\s</string>
-					<key>beginCaptures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>keyword.control.assert.swift</string>
-						</dict>
-					</dict>
-					<key>end</key>
-					<string>$</string>
-					<key>name</key>
-					<string>meta.declaration.assertion.swift</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>match</key>
-							<string>:</string>
-							<key>name</key>
-							<string>keyword.operator.assert.expression-seperator.swift</string>
-						</dict>
-						<dict>
-							<key>include</key>
-							<string>#code</string>
-						</dict>
-					</array>
-				</dict>
-			</array>
-		</dict>
-		<key>class</key>
-		<dict>
-			<key>begin</key>
-			<string>(?=\w?[\w\s]*(?:class|extension|protocol|struct|enum)\s+\w+)</string>
-			<key>end</key>
-			<string>}</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.section.class.end.swift</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>meta.class.swift</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#storage-modifiers</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#comments</string>
+					<string>#comment</string>
 				</dict>
 				<dict>
 					<key>captures</key>
@@ -337,695 +35,1474 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>storage.modifier.swift</string>
-						</dict>
-						<key>2</key>
-						<dict>
-							<key>name</key>
-							<string>entity.name.type.class.swift</string>
+							<string>support.type.attribute.swift</string>
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(class|extension|protocol|struct|enum)\s+(\w+)</string>
+					<string>(?x)
+@
+( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+| `[_a-zA-Z][_a-zA-Z0-9]*`
+)
+\s*
+(?!\()
+</string>
 					<key>name</key>
-					<string>meta.class.identifier.swift</string>
+					<string>attribute.swift</string>
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>:</string>
-					<key>beginCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>storage.modifier.extends.swift</string>
-						</dict>
-					</dict>
-					<key>end</key>
-					<string>(?={)</string>
-					<key>name</key>
-					<string>meta.definition.class.inherited.classes.swift</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>include</key>
-							<string>#object-types-inherited</string>
-						</dict>
-						<dict>
-							<key>include</key>
-							<string>#comments</string>
-						</dict>
-					</array>
-				</dict>
-				<dict>
-					<key>begin</key>
-					<string>(, )\s</string>
+					<string>(?x)
+@
+( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+| `[_a-zA-Z][_a-zA-Z0-9]*`
+)
+\s*
+\(
+</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>storage.modifier.implements.swift</string>
-						</dict>
-					</dict>
-					<key>end</key>
-					<string>(?=\s*:|\{)</string>
-					<key>name</key>
-					<string>meta.definition.class.implemented.protocols.swift</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>include</key>
-							<string>#object-types-inherited</string>
-						</dict>
-						<dict>
-							<key>include</key>
-							<string>#comments</string>
-						</dict>
-					</array>
-				</dict>
-				<dict>
-					<key>begin</key>
-					<string>{</string>
-					<key>end</key>
-					<string>(?=})</string>
-					<key>name</key>
-					<string>meta.class.body.swift</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>include</key>
-							<string>#class-body</string>
-						</dict>
-					</array>
-				</dict>
-			</array>
-		</dict>
-		<key>class-body</key>
-		<dict>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#comments</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#class</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#enums</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#methods</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#annotations</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#storage-modifiers</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#code</string>
-				</dict>
-			</array>
-		</dict>
-		<key>code</key>
-		<dict>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#comments</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#class</string>
-				</dict>
-				<dict>
-					<key>begin</key>
-					<string>{</string>
-					<key>end</key>
-					<string>}</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>include</key>
-							<string>#code</string>
-						</dict>
-					</array>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#assertions</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#parens</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#constants-and-special-vars</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#anonymous-classes-and-new</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#keywords</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#storage-modifiers</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#strings</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#all-types</string>
-				</dict>
-			</array>
-		</dict>
-		<key>comments</key>
-		<dict>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>captures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.comment.swift</string>
-						</dict>
-					</dict>
-					<key>match</key>
-					<string>/\*\*/</string>
-					<key>name</key>
-					<string>comment.block.empty.swift</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>text.html.swiftdoc</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#comments-inline</string>
-				</dict>
-			</array>
-		</dict>
-		<key>comments-inline</key>
-		<dict>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>begin</key>
-					<string>/\*</string>
-					<key>captures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.comment.swift</string>
-						</dict>
-					</dict>
-					<key>end</key>
-					<string>\*/</string>
-					<key>name</key>
-					<string>comment.block.swift</string>
-				</dict>
-				<dict>
-					<key>captures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>comment.line.mark.swift</string>
-						</dict>
-						<key>2</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.comment.swift</string>
-						</dict>
-					</dict>
-					<key>match</key>
-					<string>\s*((// *MARK:).*$\n?)</string>
-				</dict>
-				<dict>
-					<key>captures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>comment.line.double-slash.swift</string>
-						</dict>
-						<key>2</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.comment.swift</string>
-						</dict>
-					</dict>
-					<key>match</key>
-					<string>\s*((//).*$\n?)</string>
-				</dict>
-			</array>
-		</dict>
-		<key>constants-and-special-vars</key>
-		<dict>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>match</key>
-					<string>\b(true|false|nil)\b</string>
-					<key>name</key>
-					<string>constant.language.swift</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>\b(self|super)\b</string>
-					<key>name</key>
-					<string>variable.language.swift</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>\b((0(x|X)[0-9a-fA-F_]*)|(([0-9_]+\.?[0-9_]*)|(\.[0-9_]+))((e|E)(\+|-)?[0-9_]+)?)([LlFfUuDd]|UL|ul)?\b</string>
-					<key>name</key>
-					<string>constant.numeric.swift</string>
-				</dict>
-				<dict>
-					<key>captures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>keyword.operator.dereference.swift</string>
-						</dict>
-					</dict>
-					<key>match</key>
-					<string>(\.)?\b([A-Z][A-Z0-9_]+)(?!&lt;|\.(dynamicType|self)|\s*\w+\s*=)\b</string>
-					<key>name</key>
-					<string>constant.other.swift</string>
-				</dict>
-			</array>
-		</dict>
-		<key>enums</key>
-		<dict>
-			<key>begin</key>
-			<string>^(?=\s*[A-Z0-9_]+\s*({|\(|,))</string>
-			<key>end</key>
-			<string>(?=})</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>begin</key>
-					<string>\w+</string>
-					<key>beginCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>constant.other.enum.swift</string>
-						</dict>
-					</dict>
-					<key>end</key>
-					<string>(?=,|})</string>
-					<key>name</key>
-					<string>meta.enum.swift</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>include</key>
-							<string>#parens</string>
-						</dict>
-						<dict>
-							<key>begin</key>
-							<string>{</string>
-							<key>end</key>
-							<string>}</string>
-							<key>patterns</key>
-							<array>
-								<dict>
-									<key>include</key>
-									<string>#class-body</string>
-								</dict>
-							</array>
-						</dict>
-					</array>
-				</dict>
-			</array>
-		</dict>
-		<key>keywords</key>
-		<dict>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>match</key>
-					<string>\b(try|catch|finally|throw)\b</string>
-					<key>name</key>
-					<string>keyword.control.catch-exception.swift</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>\?|:</string>
-					<key>name</key>
-					<string>keyword.control.swift</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>\b(return|break|case|continue|default|do|while|for|switch|if|else)\b</string>
-					<key>name</key>
-					<string>keyword.control.swift</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>\b(instanceof)\b</string>
-					<key>name</key>
-					<string>keyword.operator.swift</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(==|!=|&lt;=|&gt;=|&lt;&gt;|&lt;|&gt;)</string>
-					<key>name</key>
-					<string>keyword.operator.comparison.swift</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(=)</string>
-					<key>name</key>
-					<string>keyword.operator.assignment.swift</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(\-\-|\+\+)</string>
-					<key>name</key>
-					<string>keyword.operator.increment-decrement.swift</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(\-|\+|\*|\/|%)</string>
-					<key>name</key>
-					<string>keyword.operator.arithmetic.swift</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(!|&amp;&amp;|\|\|)</string>
-					<key>name</key>
-					<string>keyword.operator.logical.swift</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(?&lt;=\S)\.(?=\S)</string>
-					<key>name</key>
-					<string>keyword.operator.dereference.swift</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>;</string>
-					<key>name</key>
-					<string>punctuation.terminator.swift</string>
-				</dict>
-			</array>
-		</dict>
-		<key>methods</key>
-		<dict>
-			<key>begin</key>
-			<string>(?!new)(?=\w.*\s+)(?=[^=]+\()</string>
-			<key>end</key>
-			<string>}</string>
-			<key>name</key>
-			<string>meta.method.swift</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#storage-modifiers</string>
-				</dict>
-				<dict>
-					<key>begin</key>
-					<string>(\w+)\s*\(</string>
-					<key>beginCaptures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>entity.name.function.swift</string>
+							<string>support.type.attribute.swift</string>
 						</dict>
 					</dict>
 					<key>end</key>
 					<string>\)</string>
 					<key>name</key>
-					<string>meta.method.identifier.swift</string>
+					<string>attribute.swift</string>
 					<key>patterns</key>
 					<array>
 						<dict>
 							<key>include</key>
-							<string>#parameters</string>
-						</dict>
-					</array>
-				</dict>
-				<dict>
-					<key>begin</key>
-					<string>(?=\w.*\s+\w+\s*\()</string>
-					<key>end</key>
-					<string>(?=\w+\s*\()</string>
-					<key>name</key>
-					<string>meta.method.return-type.swift</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>include</key>
-							<string>#all-types</string>
-						</dict>
-					</array>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#throws</string>
-				</dict>
-				<dict>
-					<key>begin</key>
-					<string>{</string>
-					<key>end</key>
-					<string>(?=})</string>
-					<key>name</key>
-					<string>meta.method.body.swift</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>include</key>
-							<string>#code</string>
+							<string>#balanced-tokens</string>
 						</dict>
 					</array>
 				</dict>
 			</array>
 		</dict>
-		<key>object-types</key>
+		<key>balanced-tokens</key>
 		<dict>
 			<key>patterns</key>
 			<array>
 				<dict>
+					<key>include</key>
+					<string>#comment</string>
+				</dict>
+				<dict>
 					<key>begin</key>
-					<string>\b((?:[a-z]\w*\.)*[A-Z]+\w*)&lt;</string>
+					<string>\(</string>
 					<key>end</key>
-					<string>&gt;|[^\w\s,\?&lt;\[\]]</string>
+					<string>\)</string>
 					<key>name</key>
-					<string>storage.type.generic.swift</string>
+					<string>balanced-token-paren.swift</string>
 					<key>patterns</key>
 					<array>
 						<dict>
 							<key>include</key>
-							<string>#object-types</string>
-						</dict>
-						<dict>
-							<key>begin</key>
-							<string>&lt;</string>
-							<key>comment</key>
-							<string>This is just to support &lt;&gt;'s with no actual type prefix</string>
-							<key>end</key>
-							<string>&gt;|[^\w\s,\[\]&lt;]</string>
-							<key>name</key>
-							<string>storage.type.generic.swift</string>
+							<string>#balanced-tokens</string>
 						</dict>
 					</array>
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>\b((?:[a-z]\w*\.)*[A-Z]+\w*)(?=\[)</string>
+					<string>\[</string>
 					<key>end</key>
-					<string>(?=[^\]\s])</string>
+					<string>\]</string>
 					<key>name</key>
-					<string>storage.type.object.array.swift</string>
+					<string>balanced-token-bracket.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#balanced-tokens</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>\{</string>
+					<key>end</key>
+					<string>\}</string>
+					<key>name</key>
+					<string>balanced-token-brace.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#balanced-tokens</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#literal</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>support.function.swift</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(?x)
+\b
+( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+| `[_a-zA-Z][_a-zA-Z0-9]*`
+)
+\b
+</string>
+					<key>name</key>
+					<string>balanced-token-identifier.swift</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>support.function.swift</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(?x)
+(?!/\*|\*/|//)
+( [-/=+!*%&lt;&gt;&amp;|^~?]+
+| \.\.&lt;
+| \.\.+
+)
+</string>
+					<key>name</key>
+					<string>balanced-token-operator.swift</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?!\[|\]|[(){}]).</string>
+					<key>name</key>
+					<string>balanced-token-other.swift</string>
+				</dict>
+			</array>
+		</dict>
+		<key>comment</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\s*(// *MARK:).*\n?$</string>
+					<key>name</key>
+					<string>comment.line.mark.swift</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\s*//.*$</string>
+					<key>name</key>
+					<string>comment.line.swift</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>/\*</string>
+					<key>end</key>
+					<string>\*/</string>
+					<key>name</key>
+					<string>comment.multiline.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#comment</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<key>declaration</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#comment</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#attribute</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.other.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.other.swift</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>support.other.module.swift</string>
+						</dict>
+						<key>4</key>
+						<dict>
+							<key>name</key>
+							<string>support.other.module.swift</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(?x)
+\b(import)\s+
+(?:
+  (typealias|struct|class|enum|protocol|var|func)\s+
+)?
+( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+| `[_a-zA-Z][_a-zA-Z0-9]*`
+| [-/=+!*%&lt;&gt;&amp;|^~]+
+| \?\?
+| \.\.&lt;
+| \.\.+
+)
+(?:
+    \.
+    ( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+    | `[_a-zA-Z][_a-zA-Z0-9]*`
+    | [-/=+!*%&lt;&gt;&amp;|^~]+
+    | \.\.&lt;
+    | \.\.+
+    )
+)*
+</string>
+					<key>name</key>
+					<string>import-declaration.swift</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(?x)
+\b
+(?&lt;!\.)
+(?:
+    (func)\s+
+    ( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+    | `[_a-zA-Z][_a-zA-Z0-9]*`
+    | [-/=+!*%&lt;&gt;&amp;|^~]+?(?=\s*[&lt;(][^-/=+!*%&lt;&gt;&amp;|^~ ])
+    )
+|   (init)\b
+|   (deinit)\b
+|   (subscript)\b
+)
+</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.func.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.function.swift</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.init.swift</string>
+						</dict>
+						<key>4</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.deinit.swift</string>
+						</dict>
+						<key>5</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.subscript.swift</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?=\{)|$</string>
+					<key>name</key>
+					<string>function-declaration.swift</string>
 					<key>patterns</key>
 					<array>
 						<dict>
 							<key>begin</key>
-							<string>\[</string>
+							<string>&lt;(?![-/=+!*%&lt;&gt;&amp;|^~]+)</string>
 							<key>end</key>
-							<string>\]</string>
+							<string>&gt;</string>
+							<key>name</key>
+							<string>generic-parameter-clause.swift</string>
 							<key>patterns</key>
 							<array>
 								<dict>
 									<key>include</key>
-									<string>#code</string>
+									<string>#generic-parameter-clause</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>-&gt;</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>0</key>
+								<dict>
+									<key>name</key>
+									<string>keyword.arrow.swift</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>(?=[{;])|$</string>
+							<key>name</key>
+							<string>function-result.swift</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#type</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>\(</string>
+							<key>end</key>
+							<string>\)</string>
+							<key>name</key>
+							<string>parameter-clause.swift</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>captures</key>
+									<dict>
+										<key>1</key>
+										<dict>
+											<key>name</key>
+											<string>keyword.inout.swift</string>
+										</dict>
+										<key>2</key>
+										<dict>
+											<key>name</key>
+											<string>keyword.let.swift</string>
+										</dict>
+										<key>3</key>
+										<dict>
+											<key>name</key>
+											<string>keyword.var.swift</string>
+										</dict>
+										<key>4</key>
+										<dict>
+											<key>name</key>
+											<string>support.function.external-name.swift</string>
+										</dict>
+										<key>5</key>
+										<dict>
+											<key>name</key>
+											<string>variable.parameter.swift</string>
+										</dict>
+									</dict>
+									<key>match</key>
+									<string>(?x)
+(?:\b(inout)\s+)?
+(?:\b(?:(let)|(var))\s+)?
+(?:[#])?
+(?:
+    ( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+    | `[_a-zA-Z][_a-zA-Z0-9]*`
+    )
+    \s+
+)?
+( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+| `[_a-zA-Z][_a-zA-Z0-9]*`
+)
+\s*
+</string>
+									<key>name</key>
+									<string>parameter.swift</string>
+								</dict>
+								<dict>
+									<key>begin</key>
+									<string>=</string>
+									<key>end</key>
+									<string>,|(?=[=)])</string>
+									<key>name</key>
+									<string>default-argument-clause.swift</string>
+									<key>patterns</key>
+									<array>
+										<dict>
+											<key>include</key>
+											<string>#expression</string>
+										</dict>
+									</array>
+								</dict>
+								<dict>
+									<key>begin</key>
+									<string>:</string>
+									<key>end</key>
+									<string>,|(?=[=)])</string>
+									<key>name</key>
+									<string>type-annotation.swift</string>
+									<key>patterns</key>
+									<array>
+										<dict>
+											<key>include</key>
+											<string>#type</string>
+										</dict>
+									</array>
 								</dict>
 							</array>
 						</dict>
 					</array>
 				</dict>
 				<dict>
-					<key>captures</key>
+					<key>begin</key>
+					<string>\b(let)\s+</string>
+					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.operator.dereference.swift</string>
+							<string>keyword.let.swift</string>
 						</dict>
 					</dict>
-					<key>match</key>
-					<string>\b(?:[a-z]\w*(\.))*[A-Z]+\w*\b</string>
-					<key>name</key>
-					<string>storage.type.swift</string>
-				</dict>
-			</array>
-		</dict>
-		<key>object-types-inherited</key>
-		<dict>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>begin</key>
-					<string>\b((?:[a-z]\w*\.)*[A-Z]+\w*)&lt;</string>
 					<key>end</key>
-					<string>&gt;|[^\w\s,&lt;]</string>
+					<string>(?&lt;!,)(?=\s*$)</string>
 					<key>name</key>
-					<string>entity.other.inherited-class.swift</string>
+					<string>constant-declaration.swift</string>
 					<key>patterns</key>
 					<array>
 						<dict>
-							<key>include</key>
-							<string>#object-types</string>
+							<key>begin</key>
+							<string>=</string>
+							<key>end</key>
+							<string>(?=,)|$</string>
+							<key>name</key>
+							<string>pattern-initializer.swift</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#expression</string>
+								</dict>
+							</array>
 						</dict>
 						<dict>
 							<key>begin</key>
-							<string>&lt;</string>
-							<key>comment</key>
-							<string>This is just to support &lt;&gt;'s with no actual type prefix</string>
+							<string>:</string>
 							<key>end</key>
-							<string>&gt;|[^\w\s,&lt;]</string>
+							<string>(?=[,=])|$</string>
 							<key>name</key>
-							<string>storage.type.generic.swift</string>
+							<string>let-type-ascription.swift</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#type</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>variable.swift</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>(?x)
+\b
+( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+| `[_a-zA-Z][_a-zA-Z0-9]*`
+)
+\s*
+(?=:)
+</string>
+							<key>name</key>
+							<string>variable.swift</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#pattern</string>
 						</dict>
 					</array>
 				</dict>
 				<dict>
+					<key>begin</key>
+					<string>(?x)
+\b
+(var)\s+
+( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+| `[_a-zA-Z][_a-zA-Z0-9]*`
+)
+\s*
+(?::|(?==))
+</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.other.binding.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>variable.swift</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>=|$</string>
+					<key>name</key>
+					<string>variable-declaration.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#type</string>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>\{</string>
+							<key>end</key>
+							<string>\}</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#attribute</string>
+								</dict>
+								<dict>
+									<key>captures</key>
+									<dict>
+										<key>1</key>
+										<dict>
+											<key>name</key>
+											<string>keyword.get.swift</string>
+										</dict>
+										<key>2</key>
+										<dict>
+											<key>name</key>
+											<string>keyword.set.swift</string>
+										</dict>
+										<key>3</key>
+										<dict>
+											<key>name</key>
+											<string>keyword.didSet.swift</string>
+										</dict>
+										<key>4</key>
+										<dict>
+											<key>name</key>
+											<string>keyword.willSet.swift</string>
+										</dict>
+									</dict>
+									<key>match</key>
+									<string>\b(get)|(set)|(didSet)|(willSet)\b</string>
+									<key>name</key>
+									<string>getter-setter-keyword.swift</string>
+								</dict>
+								<dict>
+									<key>begin</key>
+									<string>\{</string>
+									<key>end</key>
+									<string>\}</string>
+									<key>name</key>
+									<string>getter-setter-block.swift</string>
+									<key>patterns</key>
+									<array>
+										<dict>
+											<key>include</key>
+											<string>#statement</string>
+										</dict>
+									</array>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#statement</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(?x)
+\b
+(?:(struct)|(class)|(protocol)|(extension))\s+
+(?!class|deinit|enum|extension|func|import|init|internal|let|operator|private|protocol
+|public|static|struct|subscript|typealias|var|break|case|continue|default|do|else
+|fallthrough|for|if|in|return|switch|where|while|as|dynamicType|false|is|nil|self|Self
+|super|true|__COLUMN__|__FILE__|__FUNCTION__|and __LINE__)
+( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+| `[_a-zA-Z][_a-zA-Z0-9]*`
+)
+\s*
+</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.struct.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.class.swift</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.protocol.swift</string>
+						</dict>
+						<key>4</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.extension.swift</string>
+						</dict>
+						<key>5</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.class.declaration.swift</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?&lt;=\})</string>
+					<key>name</key>
+					<string>struct-class-protocol-extension-declaration.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>begin</key>
+							<string>&lt;</string>
+							<key>end</key>
+							<string>&gt;</string>
+							<key>name</key>
+							<string>generic-parameter-clause.swift</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#generic-parameter-clause</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>\{</string>
+							<key>end</key>
+							<string>\}</string>
+							<key>name</key>
+							<string>body.structure.swift</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#statement</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>[:,]</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#type</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(?x)
+\b
+(enum)\s+
+( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+| `[_a-zA-Z][_a-zA-Z0-9]*`
+)
+\s*
+</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.other.binding.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.class.declaration.swift</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?&lt;=\})</string>
+					<key>name</key>
+					<string>enum-declaration.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>begin</key>
+							<string>&lt;</string>
+							<key>end</key>
+							<string>&gt;</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#generic-parameter-clause</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>\{</string>
+							<key>end</key>
+							<string>\}</string>
+							<key>name</key>
+							<string>body.enum.swift</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>begin</key>
+									<string>\b(case)\s+</string>
+									<key>beginCaptures</key>
+									<dict>
+										<key>1</key>
+										<dict>
+											<key>name</key>
+											<string>keyword.case.swift</string>
+										</dict>
+									</dict>
+									<key>end</key>
+									<string>(?&lt;!,)(?=\s*(?:\}|$))</string>
+									<key>name</key>
+									<string>declaration.case.swift</string>
+									<key>patterns</key>
+									<array>
+										<dict>
+											<key>match</key>
+											<string>,</string>
+										</dict>
+										<dict>
+											<key>captures</key>
+											<dict>
+												<key>1</key>
+												<dict>
+													<key>name</key>
+													<string>entity.name.class.enumcase.swift</string>
+												</dict>
+											</dict>
+											<key>match</key>
+											<string>(?x)
+( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+| `[_a-zA-Z][_a-zA-Z0-9]*`
+)
+(?!\s*[(=])
+</string>
+											<key>name</key>
+											<string>enum-case.swift</string>
+										</dict>
+										<dict>
+											<key>begin</key>
+											<string>(?x)
+( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+| `[_a-zA-Z][_a-zA-Z0-9]*`
+)
+\s*
+=
+</string>
+											<key>beginCaptures</key>
+											<dict>
+												<key>1</key>
+												<dict>
+													<key>name</key>
+													<string>entity.name.class.enumcase.swift</string>
+												</dict>
+											</dict>
+											<key>end</key>
+											<string>(?=[,}]|$)</string>
+											<key>name</key>
+											<string>raw-value-style-enum-case.swift</string>
+											<key>patterns</key>
+											<array>
+												<dict>
+													<key>include</key>
+													<string>#expression</string>
+												</dict>
+											</array>
+										</dict>
+										<dict>
+											<key>begin</key>
+											<string>(?x)
+( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+| `[_a-zA-Z][_a-zA-Z0-9]*`
+)
+\s*\(
+</string>
+											<key>beginCaptures</key>
+											<dict>
+												<key>1</key>
+												<dict>
+													<key>name</key>
+													<string>entity.name.class.enumcase.swift</string>
+												</dict>
+											</dict>
+											<key>end</key>
+											<string>\)</string>
+											<key>name</key>
+											<string>union-style-enum-case-tuple.swift</string>
+											<key>patterns</key>
+											<array>
+												<dict>
+													<key>match</key>
+													<string>\binout\b</string>
+													<key>name</key>
+													<string>keyword.other.swift</string>
+												</dict>
+												<dict>
+													<key>match</key>
+													<string>,</string>
+												</dict>
+												<dict>
+													<key>captures</key>
+													<dict>
+														<key>1</key>
+														<dict>
+															<key>name</key>
+															<string>variable.parameter.type.swift</string>
+														</dict>
+													</dict>
+													<key>match</key>
+													<string>(?x)
+\b
+( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+| `[_a-zA-Z][_a-zA-Z0-9]*`
+)
+\s*
+:
+</string>
+													<key>name</key>
+													<string>support.type.identifier.swift</string>
+												</dict>
+												<dict>
+													<key>include</key>
+													<string>#type</string>
+												</dict>
+											</array>
+										</dict>
+									</array>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#statement</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>[:,]</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#type</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(?x)
+\b
+(typealias)
+\s+
+( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+| `[_a-zA-Z][_a-zA-Z0-9]*`
+)
+\s*(?:=|$)
+</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.typealias.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.type.swift</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>;|$</string>
+					<key>name</key>
+					<string>typealias-declaration.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#type</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#modifiers</string>
+				</dict>
+			</array>
+		</dict>
+		<key>expression</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#comment</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#literal</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(?x)(?&lt;![.-/=+!*%&lt;&gt;&amp;|^~])&lt;(?!\s|[-/=+!*%&lt;&gt;&amp;|^~]+)
+</string>
+					<key>end</key>
+					<string>&gt;</string>
+					<key>name</key>
+					<string>generic-argument-clause.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#type</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?x)
+(?!/\*|\*/|//
+|(?:[(){}.,;@#`]|\[|\])[^-/=+!*%&lt;&gt;&amp;|^~]
+)
+( [-/=+!*%&lt;&gt;&amp;|^~]+
+| \?\?
+| \.\.&lt;
+| \.\.+
+)
+</string>
+					<key>name</key>
+					<string>keyword.operator.swift</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(?x)
+(?:
+    \b
+    (init)
+|
+    \b
+    ( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+    | `[_a-zA-Z][_a-zA-Z0-9]*`
+    )
+|
+    \[
+    \s*
+    ( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+    | `[_a-zA-Z][_a-zA-Z0-9]*`
+    )
+    (?:
+        \s*,\s*
+        ( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+        | `[_a-zA-Z][_a-zA-Z0-9]*`
+        )
+    )*
+    \]
+)
+\s*
+(?=\&lt;[^ -/=+!*%&lt;&gt;&amp;|^~])
+</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.init.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>support.function.swift</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>support.type.identifier.swift</string>
+						</dict>
+						<key>4</key>
+						<dict>
+							<key>name</key>
+							<string>support.type.identifier.swift</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?&lt;=\))|(?=\{)</string>
+					<key>name</key>
+					<string>expression.generic-application.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>begin</key>
+							<string>&lt;(?![-/=+!*%&lt;&gt;&amp;|^~]+)</string>
+							<key>end</key>
+							<string>&gt;</string>
+							<key>name</key>
+							<string>generic-argument-clause.swift</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#type</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>\(</string>
+							<key>end</key>
+							<string>\)</string>
+							<key>name</key>
+							<string>parameter-clause.swift</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>captures</key>
+									<dict>
+										<key>1</key>
+										<dict>
+											<key>name</key>
+											<string>support.function.swift</string>
+										</dict>
+									</dict>
+									<key>match</key>
+									<string>(?x)
+\b
+( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+| `[_a-zA-Z][_a-zA-Z0-9]*`
+)
+\s*:
+</string>
+									<key>name</key>
+									<string>expression-element.swift</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#expression</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(?x)
+(?:
+    \b
+    (init)
+|
+    \b
+    ( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+    | `[_a-zA-Z][_a-zA-Z0-9]*`
+    )
+|
+    \[
+    \s*
+    ( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+    | `[_a-zA-Z][_a-zA-Z0-9]*`
+    )
+    (?:
+        \s*,\s*
+        ( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+        | `[_a-zA-Z][_a-zA-Z0-9]*`
+        )
+    )*
+    \]
+)
+\s*
+\(
+</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.init.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>support.function.swift</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>support.type.identifier.swift</string>
+						</dict>
+						<key>4</key>
+						<dict>
+							<key>name</key>
+							<string>support.type.identifier.swift</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\)</string>
+					<key>name</key>
+					<string>expression.application.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>support.function.swift</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>(?x)
+\b
+( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+| `[_a-zA-Z][_a-zA-Z0-9]*`
+)
+\s*:
+</string>
+							<key>name</key>
+							<string>expression-element.swift</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#expression</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b(self)\b</string>
+					<key>name</key>
+					<string>keyword.self.swift</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b(dynamicType)\b</string>
+					<key>name</key>
+					<string>keyword.dynamicType.swift</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b(super)\b</string>
+					<key>name</key>
+					<string>keyword.super.swift</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(?x)
+\b(is|as\??)
+\s+
+</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.typeascription.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.operator.type.swift</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?=\s|\]|[\),])|$</string>
+					<key>name</key>
+					<string>expression.type.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#type</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>,</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>\(</string>
+					<key>end</key>
+					<string>\)</string>
+					<key>name</key>
+					<string>body.sexpr.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#expression</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>\{</string>
+					<key>end</key>
+					<string>\}</string>
+					<key>name</key>
+					<string>closure-expression.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>begin</key>
+							<string>(?&lt;=\{)\s*\(</string>
+							<key>end</key>
+							<string>(?=\bin\b)</string>
+							<key>name</key>
+							<string>closure-signature.swift</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>captures</key>
+									<dict>
+										<key>1</key>
+										<dict>
+											<key>name</key>
+											<string>variable.parameter.type.swift</string>
+										</dict>
+									</dict>
+									<key>match</key>
+									<string>(?x)
+(?&lt;=[,\(])
+\s*
+( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+| `[_a-zA-Z][_a-zA-Z0-9]*`
+)
+\s*
+(?=[,\)])
+</string>
+									<key>name</key>
+									<string>variable.parameter.untyped.swift</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#tuple-type</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>\b(in)\s+</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>keyword.in.swift</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>(?=\})</string>
+							<key>name</key>
+							<string>closure-body.swift</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#statement</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#statement</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>\[</string>
+					<key>end</key>
+					<string>\]</string>
+					<key>name</key>
+					<string>expression.array.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#expression</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(?&lt;=\s)(\?)(?=[^-/=+!*%&lt;&gt;&amp;|^~])\s*</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.operator.swift</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>:</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.operator.swift</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>conditional-operator.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#expression</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<key>generic-parameter-clause</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#comment</string>
+				</dict>
+				<dict>
 					<key>captures</key>
 					<dict>
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>keyword.operator.dereference.swift</string>
+							<string>keyword.where.swift</string>
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>\b(?:[a-z]\w*(\.))*[A-Z]+\w*</string>
+					<string>\b(where)\b</string>
 					<key>name</key>
-					<string>entity.other.inherited-class.swift</string>
+					<string>type.requirement.swift</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?x)
+( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+| `[_a-zA-Z][_a-zA-Z0-9]*`
+)
+</string>
+					<key>name</key>
+					<string>variable.parameter.type.swift</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>:</string>
+					<key>end</key>
+					<string>(?=[,&gt;]|\bwhere\b)</string>
+					<key>name</key>
+					<string>type.ascription.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#type</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>==</string>
+					<key>name</key>
+					<string>keyword.operator.swift</string>
 				</dict>
 			</array>
 		</dict>
-		<key>parameters</key>
+		<key>identifier-pattern</key>
 		<dict>
 			<key>patterns</key>
 			<array>
 				<dict>
 					<key>match</key>
-					<string>final</string>
+					<string>(?x)
+(?!\b(?:as|is|let|var)\b)
+( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+| `[_a-zA-Z][_a-zA-Z0-9]*`
+)
+</string>
 					<key>name</key>
-					<string>storage.modifier.swift</string>
+					<string>variable.swift</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#primitive-arrays</string>
+					<string>#pattern</string>
 				</dict>
+			</array>
+		</dict>
+		<key>literal</key>
+		<dict>
+			<key>patterns</key>
+			<array>
 				<dict>
 					<key>include</key>
-					<string>#primitive-types</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#object-types</string>
+					<string>#comment</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\w+</string>
+					<string>\b(true|false)\b</string>
 					<key>name</key>
-					<string>variable.parameter.swift</string>
+					<string>support.constant.boolean.swift</string>
 				</dict>
-			</array>
-		</dict>
-		<key>parens</key>
-		<dict>
-			<key>begin</key>
-			<string>\(</string>
-			<key>end</key>
-			<string>\)</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#code</string>
-				</dict>
-			</array>
-		</dict>
-		<key>primitive-arrays</key>
-		<dict>
-			<key>patterns</key>
-			<array>
 				<dict>
 					<key>match</key>
-					<string>\b\[(?:\w+)\]\b</string>
+					<string>\bnil\b</string>
 					<key>name</key>
-					<string>storage.type.primitive.array.swift</string>
+					<string>support.constant.nil.swift</string>
 				</dict>
-			</array>
-		</dict>
-		<key>primitive-types</key>
-		<dict>
-			<key>patterns</key>
-			<array>
 				<dict>
 					<key>match</key>
-					<string>\b(?:let|var)\b</string>
+					<string>(?x)
+\b
+# specifically do not include negation here and instead treat it syntactically
+# as a prefix negation operator. this simplifies the grammar here
+( 0b[01][_01]*                # binary-literal
+| 0o[0-7][_0-7]*              # octal-literal
+|
+  0x[0-9a-fA-F][_0-9a-fA-f]*  # hexadecimal-literal
+  (?:\.[0-9a-fA-F][_0-9a-fA-f]*)? # hexadecimal-fraction opt
+  (?:[pP][-+]?[0-9][_0-9]*)?  # hexadecimal-exponent opt
+|
+  [0-9][_0-9]*                # integer-literal
+  (?:\.[0-9][_0-9]*)?         # decimal-fraction opt
+  (?:[eE][-+]?[0-9][_0-9]*)?  # decimal-exponent opt
+)
+\b
+</string>
 					<key>name</key>
-					<string>storage.type.primitive.swift</string>
+					<string>constant.numeric.swift</string>
 				</dict>
-			</array>
-		</dict>
-		<key>storage-modifiers</key>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>storage.modifier.swift</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>\b(override|required|static|public|private|protected|var|let|func)\b</string>
-		</dict>
-		<key>strings</key>
-		<dict>
-			<key>patterns</key>
-			<array>
 				<dict>
 					<key>begin</key>
 					<string>"</string>
@@ -1034,7 +1511,7 @@
 						<key>0</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string.begin.swift</string>
+							<string>punctuation.string.begin.swift</string>
 						</dict>
 					</dict>
 					<key>end</key>
@@ -1044,78 +1521,883 @@
 						<key>0</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string.end.swift</string>
+							<string>punctuation.string.end.swift</string>
 						</dict>
 					</dict>
 					<key>name</key>
-					<string>string.quoted.double.swift</string>
+					<string>string.quoted.swift</string>
 					<key>patterns</key>
 					<array>
 						<dict>
+							<key>match</key>
+							<string>\\[\\0tnr"']</string>
+							<key>name</key>
+							<string>constant.character.escape.swift</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>\\u\{[0-9a-fA-F]+\}</string>
+							<key>name</key>
+							<string>constant.character.escape.swift</string>
+						</dict>
+						<dict>
 							<key>begin</key>
 							<string>\\\(</string>
-							<key>end</key>
-							<string>\)</string>
-							<key>name</key>
-							<string>source.swift.embedded.source</string>
-							<key>captures</key>
+							<key>beginCaptures</key>
 							<dict>
 								<key>0</key>
 								<dict>
 									<key>name</key>
-									<string>keyword.operator.swift</string>
+									<string>constant.character.interpolation.swift</string>
 								</dict>
 							</dict>
-						</dict>
-						<dict>
-							<key>match</key>
-							<string>\\.</string>
-							<key>name</key>
-							<string>constant.character.escape.swift</string>
+							<key>end</key>
+							<string>\)</string>
+							<key>endCaptures</key>
+							<dict>
+								<key>0</key>
+								<dict>
+									<key>name</key>
+									<string>constant.character.interpolation.swift</string>
+								</dict>
+							</dict>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#expression</string>
+								</dict>
+							</array>
 						</dict>
 					</array>
 				</dict>
 			</array>
 		</dict>
-		<key>throws</key>
+		<key>modifiers</key>
 		<dict>
-			<key>begin</key>
-			<string>throws</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>storage.modifier.swift</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>(?={)</string>
-			<key>name</key>
-			<string>meta.throwables.swift</string>
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>include</key>
-					<string>#object-types</string>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.other.declmod.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.other.declmod.swift</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.other.swift</string>
+						</dict>
+						<key>4</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.other.declmod.swift</string>
+						</dict>
+						<key>5</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.other.swift</string>
+						</dict>
+						<key>6</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.other.accessmod.swift</string>
+						</dict>
+						<key>7</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.other.swift</string>
+						</dict>
+						<key>8</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.other.accessmod.swift</string>
+						</dict>
+						<key>9</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.other.swift</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(?x)
+\b
+(?:
+    (class|convenience|dynamic|final|infix|lazy|mutating|nonmutating|optional|override
+    |postfix|prefix|required|static|weak)\b
+|   (unowned) (?:\s*(\()\s*((?:un)?safe)\s*(\))|\b)
+|   (internal|private|public) (?:\s*(\()\s*(set)\s*(\))|\b)
+)
+</string>
+					<key>name</key>
+					<string>declaration-modifier.swift</string>
 				</dict>
 			</array>
 		</dict>
-		<key>values</key>
+		<key>pattern</key>
 		<dict>
 			<key>patterns</key>
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#strings</string>
+					<string>#comment</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b_\b</string>
+					<key>name</key>
+					<string>variable.parameter.swift</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>\bas\s+</string>
+					<key>end</key>
+					<string>(?=\bas|[=,:]|\))</string>
+					<key>name</key>
+					<string>keyword.as.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#type</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>\bis\s+</string>
+					<key>end</key>
+					<string>(?=\bas|[=,:]|\))</string>
+					<key>name</key>
+					<string>keyword.is.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#type</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.var.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>variable.swift</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(?x)
+\b
+(var)\s+
+( \b[_a-zA-Z][_a-zA-Z0-9]*
+| `[_a-zA-Z][_a-zA-Z0-9]*`
+)?
+</string>
+					<key>name</key>
+					<string>variable-pattern.swift</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.let.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>variable.swift</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(?x)
+\b
+(let)\s+
+( \b[_a-zA-Z][_a-zA-Z0-9]*
+| `[_a-zA-Z][_a-zA-Z0-9]*`
+)?
+</string>
+					<key>name</key>
+					<string>keyword.let.swift</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>support.type.identifier.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>support.function.swift</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(?x)
+( \b[_a-zA-Z][_a-zA-Z0-9]*
+| `[_a-zA-Z][_a-zA-Z0-9]*`
+)?
+\.
+( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+| `[_a-zA-Z][_a-zA-Z0-9]*`
+)
+</string>
+					<key>name</key>
+					<string>enum-case-pattern.swift</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?x)
+( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+| `[_a-zA-Z][_a-zA-Z0-9]*`
+)
+</string>
+					<key>name</key>
+					<string>support.type.identifier</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>\(</string>
+					<key>end</key>
+					<string>\)</string>
+					<key>name</key>
+					<string>tuple-pattern.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#identifier-pattern</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>,</string>
+						</dict>
+					</array>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#object-types</string>
+					<string>#expression</string>
+				</dict>
+			</array>
+		</dict>
+		<key>statement</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>;</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#constants-and-special-vars</string>
+					<string>#comment</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\breturn\b</string>
+					<key>name</key>
+					<string>keyword.return.swift</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.for.swift</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(?x)
+\b(for)
+(?!.*\bin\b)
+</string>
+					<key>name</key>
+					<string>for-statement.swift</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>\b(for)\s+</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.for.swift</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\b(in)\b</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.in.swift</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>for-in-statement.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#identifier-pattern</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\bwhile\b</string>
+					<key>name</key>
+					<string>keyword.while.swift</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>\b(do)\s+</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.do.swift</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\b(while)\b</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.while.swift</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>do-while-statement.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>begin</key>
+							<string>\{</string>
+							<key>end</key>
+							<string>\}</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#statement</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>\b(if)\s+</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.if.swift</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?&lt;=\})</string>
+					<key>name</key>
+					<string>if-statement.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>begin</key>
+							<string>\{</string>
+							<key>end</key>
+							<string>\}</string>
+							<key>name</key>
+							<string>consequence-block.swift</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#statement</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>\b(let|var)\s+</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>keyword.letvar.swift</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>(?=\{)</string>
+							<key>name</key>
+							<string>if-expression-letvar.swift</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>begin</key>
+									<string>=</string>
+									<key>end</key>
+									<string>(?=[,{])</string>
+									<key>name</key>
+									<string>pattern-initializer.swift</string>
+									<key>patterns</key>
+									<array>
+										<dict>
+											<key>include</key>
+											<string>#expression</string>
+										</dict>
+									</array>
+								</dict>
+								<dict>
+									<key>begin</key>
+									<string>:</string>
+									<key>end</key>
+									<string>(?=[,=\{])|$</string>
+									<key>name</key>
+									<string>let-type-ascription.swift</string>
+									<key>patterns</key>
+									<array>
+										<dict>
+											<key>include</key>
+											<string>#type</string>
+										</dict>
+									</array>
+								</dict>
+								<dict>
+									<key>captures</key>
+									<dict>
+										<key>1</key>
+										<dict>
+											<key>name</key>
+											<string>variable.swift</string>
+										</dict>
+									</dict>
+									<key>match</key>
+									<string>(?x)
+\b
+( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+| `[_a-zA-Z][_a-zA-Z0-9]*`
+)
+\s*
+(?=:)
+</string>
+									<key>name</key>
+									<string>variable.swift</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#pattern</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#declaration</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#expression</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\belse\b</string>
+					<key>name</key>
+					<string>keyword.else.swift</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>\b(switch)\s+</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.switch.swift</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?&lt;=\})</string>
+					<key>name</key>
+					<string>switch-statement.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>begin</key>
+							<string>\{</string>
+							<key>end</key>
+							<string>\}</string>
+							<key>name</key>
+							<string>body.switch.swift</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>begin</key>
+									<string>\b(where)\b</string>
+									<key>beginCaptures</key>
+									<dict>
+										<key>1</key>
+										<dict>
+											<key>name</key>
+											<string>keyword.where.swift</string>
+										</dict>
+									</dict>
+									<key>end</key>
+									<string>(?=:)</string>
+									<key>name</key>
+									<string>clause.caseguard.swift</string>
+									<key>patterns</key>
+									<array>
+										<dict>
+											<key>include</key>
+											<string>#expression</string>
+										</dict>
+									</array>
+								</dict>
+								<dict>
+									<key>captures</key>
+									<dict>
+										<key>1</key>
+										<dict>
+											<key>name</key>
+											<string>keyword.default.swift</string>
+										</dict>
+									</dict>
+									<key>match</key>
+									<string>\b(default)(?=:)</string>
+									<key>name</key>
+									<string>clause.casedefault.swift</string>
+								</dict>
+								<dict>
+									<key>begin</key>
+									<string>\b(case)\s+</string>
+									<key>beginCaptures</key>
+									<dict>
+										<key>1</key>
+										<dict>
+											<key>name</key>
+											<string>keyword.case.swift</string>
+										</dict>
+									</dict>
+									<key>end</key>
+									<string>(?=:|\bwhere\b)</string>
+									<key>name</key>
+									<string>clause.case.swift</string>
+									<key>patterns</key>
+									<array>
+										<dict>
+											<key>include</key>
+											<string>#pattern</string>
+										</dict>
+									</array>
+								</dict>
+								<dict>
+									<key>begin</key>
+									<string>:</string>
+									<key>end</key>
+									<string>(?=\b(case|default)\b|\})</string>
+									<key>name</key>
+									<string>clause.casebody.swift</string>
+									<key>patterns</key>
+									<array>
+										<dict>
+											<key>include</key>
+											<string>#statement</string>
+										</dict>
+									</array>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#expression</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.break.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.continue.swift</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>identifier</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(?x)
+\b
+(?:(break)|(continue))
+(?:
+    \s+
+    ( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+    | `[_a-zA-Z][_a-zA-Z0-9]*`
+    )
+|   \b
+)
+</string>
+					<key>name</key>
+					<string>break-continue-statement.swift</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.fallthrough.swift</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>\b(fallthrough)\b</string>
+					<key>name</key>
+					<string>fallthrough-statement.swift</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.tag</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(?x)
+( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+| `[_a-zA-Z][_a-zA-Z0-9]*`
+)
+\s*
+:
+</string>
+					<key>name</key>
+					<string>labeled-statement.swift</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#declaration</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#expression</string>
+				</dict>
+			</array>
+		</dict>
+		<key>tuple-type</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\binout\b</string>
+					<key>name</key>
+					<string>keyword.other.swift</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>,</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>variable.parameter.type.swift</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(?x)
+\b
+( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+| `[_a-zA-Z][_a-zA-Z0-9]*`
+)
+\s*
+(?=:)
+</string>
+					<key>name</key>
+					<string>variable.parameter.typed.swift</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#type</string>
+				</dict>
+			</array>
+		</dict>
+		<key>type</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#comment</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#attribute</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>\[</string>
+					<key>end</key>
+					<string>\]</string>
+					<key>name</key>
+					<string>array-type.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#type</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>:</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\(\)</string>
+					<key>name</key>
+					<string>support.type.unit.swift</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>\(</string>
+					<key>end</key>
+					<string>\)</string>
+					<key>name</key>
+					<string>tuple-type.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#tuple-type</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>&lt;</string>
+					<key>end</key>
+					<string>&gt;</string>
+					<key>name</key>
+					<string>generic-argument-clause.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#type</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>-&gt;</string>
+					<key>name</key>
+					<string>keyword.arrow.swift</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>[?!]</string>
+					<key>name</key>
+					<string>punctuation.type.optional.swift</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>\b(protocol)\s*&lt;</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.other.swift</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>&gt;</string>
+					<key>name</key>
+					<string>protocol-composition-type.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>match</key>
+							<string>(?x)
+\b
+( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+| `[_a-zA-Z][_a-zA-Z0-9]*`
+)
+\b
+</string>
+							<key>name</key>
+							<string>support.type.protocol.swift</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>,</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.other.swift</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>\.(Type|Protocol)</string>
+					<key>name</key>
+					<string>support.type.metataype.swift</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?x)
+\b
+( \b[_a-zA-Z][_a-zA-Z0-9]*\b
+| `[_a-zA-Z][_a-zA-Z0-9]*`
+)
+\b
+</string>
+					<key>name</key>
+					<string>support.type.identifier.swift</string>
 				</dict>
 			</array>
 		</dict>
@@ -1123,6 +2405,6 @@
 	<key>scopeName</key>
 	<string>source.swift</string>
 	<key>uuid</key>
-	<string>2B449DF6-6B1D-11D9-94EC-000D93589AF6</string>
+	<string>66529EE0-35DE-11E4-8C21-0800200C9A66</string>
 </dict>
 </plist>

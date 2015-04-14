@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-name: Swift Syntax
+name: Swift
 file_extensions: [swift]
 scope: source.swift
 # show_in_symbol_list:

@@ -57,14 +57,14 @@ contexts:
 ###################################################### TYPES
     # class func
     - match: \b(class)\s+(?=func)
-      scope: storage.type.function
-    - match: \b(enum|struct|class|protocol)\s+((\w+)\s+:\s+(\w+))
+      scope: meta.function storage.type.function
+    - match: \b(enum|struct|class|protocol|extension)\s+((\w+)\s+:\s+(\w+))
       captures:
         1: keyword.entity
         2: entity.name.type
         3: support.class
         4: support.class
-    - match: \b(enum|struct|class|protocol)\s+(\w+)
+    - match: \b(enum|struct|class|protocol|extension)\s+(\w+)
       captures:
         1: keyword.entity
         2: entity.name.type support.class

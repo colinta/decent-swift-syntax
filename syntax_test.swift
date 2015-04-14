@@ -1,4 +1,4 @@
-/// SYNTAX TEST "Packages/SwiftSyntax/SwiftSyntax.sublime-syntax"
+/// SYNTAX TEST "Packages/Swift-for-f-ing-sublime/Swift.sublime-syntax"
 
 // comment
 /// ^ comment.line
@@ -91,6 +91,42 @@ enum Foo : String { case Value }
 enum Foo : String {
   case Value
 }
+
+enum Foo
+/// <- keyword.entity
+///  ^ support.class
+enum Foo : Bar {}
+/// <- keyword.entity
+///  ^ support.class
+///        ^ support.class
+struct Foo
+/// <- keyword.entity
+///    ^ support.class
+struct Foo : Bar {}
+/// <- keyword.entity
+///    ^ support.class
+///          ^ support.class
+class Foo
+/// <- keyword.entity
+///   ^ support.class
+class Foo : Bar {}
+/// <- keyword.entity
+///   ^ support.class
+///         ^ support.class
+protocol Foo
+/// <- keyword.entity
+///      ^ support.class
+protocol Foo : Bar {}
+/// <- keyword.entity
+///      ^ support.class
+///            ^ support.class
+extension Foo
+/// <- keyword.entity
+///       ^ support.class
+extension Foo : Bar {}
+/// <- keyword.entity
+///       ^ support.class
+///             ^ support.class
 
 func foo()
 ///  ^ variable.function

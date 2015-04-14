@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[println("$1")$0]]></content>
-    <tabTrigger>pl</tabTrigger>
-    <scope>source.swift</scope>
-    <description>println</description>
-</snippet>

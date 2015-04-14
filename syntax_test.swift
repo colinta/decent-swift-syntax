@@ -2,9 +2,11 @@
 
 // comment
 /// ^ comment.line
+/// <- punctuation.definition.comment
 
 // MARK: testing!
 /// ^ comment.line
+/// ^ punctuation.definition.comment
 ///      ^ meta.toc-list
 
 
@@ -90,7 +92,34 @@ enum Foo : String { case Value }
 
 enum Foo : String {
   case Value
+/// ^ keyword.control
 }
+
+if foo {}
+/// <- keyword.control
+else {}
+/// <- keyword.control
+for {}
+/// <- keyword.control
+while true {}
+/// <- keyword.control
+///   ^ constant
+switch foo { case .Bar: }
+/// <- keyword.control
+///          ^ keyword.control
+break
+/// <- keyword.control
+return
+/// <- keyword.control
+case 0..0
+/// <- keyword.control
+///  ^ constant.numeric
+///   ^ keyword.operator
+///     ^ constant.numeric
+continue
+/// <- keyword.control
+default
+/// <- keyword.control
 
 enum Foo
 /// <- keyword.entity
@@ -102,10 +131,9 @@ enum Foo : Bar {}
 struct Foo
 /// <- keyword.entity
 ///    ^ support.class
-struct Foo : Bar {}
-/// <- keyword.entity
-///    ^ support.class
-///          ^ support.class
+struct Foo : Bar
+///        ^ invalid
+///          ^ invalid
 class Foo
 /// <- keyword.entity
 ///   ^ support.class
@@ -123,10 +151,10 @@ protocol Foo : Bar {}
 extension Foo
 /// <- keyword.entity
 ///       ^ support.class
-extension Foo : Bar {}
+extension Foo : Bar
 /// <- keyword.entity
 ///       ^ support.class
-///             ^ support.class
+///             ^ invalid
 
 func foo()
 ///  ^ variable.function
@@ -143,6 +171,7 @@ func foo() { foo }
 func foo(a, b: String) { foo }
 ///  ^ variable.function
 ///      ^ meta.function
+///         ^ variable.parameter
 
 "foo"
 /// <- string

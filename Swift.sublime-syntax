@@ -3,8 +3,6 @@
 name: Swift
 file_extensions: [swift]
 scope: source.swift
-# show_in_symbol_list:
-#   - meta.function
 prototype:
   - include: main
 
@@ -45,6 +43,8 @@ contexts:
       scope: constant.language.other
     - match: \b(import)\b
       scope: keyword.other.import
+    - match: \b(count|map|filter)\b
+      scope: support.function
 ###################################################### NUMERICS
     - match: \d+\.\d+
       scope: constant.numeric.float
@@ -98,7 +98,7 @@ contexts:
     - match: '"'
       push: string_double
 ###################################################### MODIFIERS
-    - match: \b(weak|public|internal|private|final|static|override|required)\b
+    - match: \b(weak|convenience|public|internal|private|final|static|override|required)\b
       scope: storage.modifier
     - match: '@\w+'
       scope: storage.type.decorator

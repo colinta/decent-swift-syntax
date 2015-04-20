@@ -62,7 +62,7 @@ contexts:
     # class func
     - match: \b(class)\s+(?=func)
       scope: meta.function storage.type.function
-    - match: \b(enum|class|protocol)\s+((\w+)\s+:\s+(\w+))
+    - match: \b(enum|class|protocol|extension)\s+((\w+)\s+:\s+(\w+))
       scope: entity.name.type
       captures:
         1: keyword.entity
@@ -74,13 +74,13 @@ contexts:
       captures:
         1: keyword.entity
         2: entity.name.type support.class
-    - match: '\b(struct|extension)\s+(\w+)\s+(:.*)'
+    - match: '\b(struct)\s+(\w+)\s+(:.*)'
       scope: entity.name.type
       captures:
         1: keyword.entity
         2: entity.name.type support.class
         3: invalid
-    - match: \b(struct|extension)\s+(\w+)
+    - match: \b(struct)\s+(\w+)
       scope: entity.name.type
       captures:
         1: keyword.entity

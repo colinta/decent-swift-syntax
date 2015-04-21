@@ -1,9 +1,6 @@
 # Swift-for-f-ing-sublime
 
-Based on the built-in Java language definition, so it doesn't suck.
+Uses the new 'sublime-syntax' format, which is super easy to work with.
 
-I was very disappointed in the other Swift language definitions out there, so I
-modified the Java definitions to work in Swift.
-
-I added support for `// MARK: ...`, and `func / protocol / nil` keywords, and
-not much else.  Pretty much "just worked" out of the box.
+Still a work in progress.  I think there's room for improvement in which symbols
+to include, like class and instance `var`/`let`.

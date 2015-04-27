@@ -69,7 +69,7 @@ contexts:
         2: entity.name.type
         3: support.class
         4: support.class
-    - match: \b(enum|class|protocol)\s+(\w+)
+    - match: \b(enum|class|protocol|extension)\s+(\w+)
       scope: entity.name.type
       captures:
         1: keyword.entity

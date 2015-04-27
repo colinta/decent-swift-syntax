@@ -23,11 +23,11 @@ contexts:
       scope: punctuation.definition.comment
       push: comment_block
 ###################################################### ENUMS
-    - match: (?<=[ \(])\.([a-zA-Z]\w*)\(
+    - match: (?<=[^\)\w])\.([a-zA-Z]\w*)\(
       captures:
        1: constant.language.enum
       push: enum
-    - match: (?<=[ \(])\.[a-zA-Z]\w*
+    - match: (?<=[^\)\w])\.[a-zA-Z]\w*
       scope: constant.language.enum
 ###################################################### CONSTANTS
     - match: \btrue\b

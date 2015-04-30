@@ -58,6 +58,8 @@ nil
 
 if { /**/ }
 /// <- keyword.control
+where { /**/ }
+/// <- keyword.control
 
 if a || b
 /// <- keyword
@@ -154,7 +156,8 @@ extension Foo
 extension Foo : Bar
 /// <- keyword.entity
 ///       ^ support.class
-///             ^ invalid
+///           ^ keyword.operator
+///             ^ support.class
 
 func foo()
 ///  ^ variable.function

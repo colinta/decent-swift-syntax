@@ -41,7 +41,7 @@ contexts:
       scope: keyword.variable
     - match: \b_\b
       scope: constant.language.other
-    - match: \b(import)\b
+    - match: \b(import|typealias)\b
       scope: keyword.other.import
     - match: \b(count|map|filter)\b
       scope: support.function

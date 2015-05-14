@@ -103,7 +103,7 @@ contexts:
     - match: '"'
       push: string_double
 ###################################################### MODIFIERS
-    - match: \b(weak|convenience|public|internal|private|final|static|override|required)\b
+    - match: \b(weak|lazy|convenience|public|internal|private|final|static|override|required)\b
       scope: storage.modifier
     - match: '@\w+'
       scope: storage.type.decorator

@@ -91,9 +91,11 @@ contexts:
         1: keyword.entity
         2: entity.name.type support.class
 ###################################################### CONTROL
-    - match: \b(if|where|else|for|while|switch)\b
+    - match: \b(if|where|else|for|while|switch|do|defer)\b
       scope: keyword.control
-    - match: \b(break|return|case|continue|default)\b
+    - match: \b(break|guard|try|catch|throws|return|case|continue|default)\b
+      scope: keyword.control
+    - match: '#(available)\b'
       scope: keyword.control
 ###################################################### VARIABLES
     - match: \b(var|let)\b

@@ -22,6 +22,11 @@ contexts:
     - match: (/\*)
       scope: punctuation.definition.comment
       push: comment_block
+###################################################### PRECOMPILED
+    - match: ^\s*(#)(\w+)(.*)$
+      captures:
+       1: punctuation.definition.preprocessor
+       2: meta.preprocessor.c
 ###################################################### ENUMS
     - match: (?<=[^\)\w])\.([a-zA-Z]\w*)\(
       captures:

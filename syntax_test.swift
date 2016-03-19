@@ -208,7 +208,7 @@ a = (.Foo(.bahr))
 //  ^ -constant.language.enum
 //    ^ constant.language.enum
 
-a.Foo + a.bar()
+a.Foo + a?.bar()
 // <- -constant.language.enum
 //^ -constant.language.enum
-//        ^ -constant.language.enum
+//         ^ -constant.language.enum

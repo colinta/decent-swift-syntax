@@ -93,7 +93,7 @@ contexts:
     - match: '#(available)\b'
       scope: keyword.control
 ###################################################### VARIABLES
-    - match: '\b(var|let)\s+(\w+)\s*(:)'
+    - match: '\b(var|let)\s+(\w+)\s*(:)\s*'
       captures:
         1: keyword.variable
         2: variable.other
@@ -222,7 +222,7 @@ contexts:
       pop: true
   function_params:
     - meta_scope: meta.function meta.toc-list
-    - match: '(\w+)\s*:'
+    - match: '\s*(\w+)\s*:\s*'
       captures:
         1: variable.parameter
       push: variable_type
@@ -292,7 +292,7 @@ contexts:
       pop: true
     - include: main
   storage_type:
-    - match: (\w+)\s*(:)
+    - match: (\w+)\s*(:)\s*
       captures:
         1: entity.name.type
         2: keyword.operator.type
@@ -344,10 +344,10 @@ contexts:
       scope: keyword.operator
     - match: \w+
       scope: support.class
-    - match: '>'
+    - match: '>\s*'
       pop: true
   class_type:
-    - match: \w+
+    - match: \w+\s*
       scope: support.class
       set: class_type_valid
     - match: \W

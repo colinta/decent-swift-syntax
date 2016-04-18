@@ -364,7 +364,12 @@ contexts:
     - match: '$'
       pop: true
   variable_type:
-    - match: \w+
+    - match: \w+\s*(\->)\s*\w+
+      captures:
+        1: keyword.operator.returns
+      scope: support.class
+      set: variable_type_valid
+    - match: \w+\s*
       scope: support.class
       set: variable_type_valid
     - match: '<'

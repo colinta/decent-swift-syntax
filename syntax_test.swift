@@ -192,6 +192,11 @@ func foo(a, b: String) { foo }
 //    ^ string
 //      ^ -string
 
+".foo"
+// <- string
+//^ string
+//   ^ string
+
 "foo \(bar + (foo * bar))"
 // <- string
 //   ^ punctuation.section

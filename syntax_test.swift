@@ -139,8 +139,9 @@ struct Foo
 // <- keyword.entity
 //     ^ support.class
 struct Foo : Bar
-//         ^ invalid
-//           ^ invalid
+//         ^ -invalid
+//           ^ -invalid
+//           ^ support.class
 class Foo
 // <- keyword.entity
 //    ^ support.class

@@ -128,8 +128,6 @@ contexts:
     - match: '(\w+):'
       captures:
         1: variable.parameter
-    - match: \b\w+
-      scope: variable.other
     - match: '[-+=<>^$#@!~*\\|&?\/.]*'
       scope: keyword.operator
     - match: '\('

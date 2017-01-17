@@ -55,6 +55,8 @@ nil
 //  ^ constant.numeric.binary
 0b22222
 //  ^ -constant.numeric.binary
+word123
+//  ^ -constant.numeric
 
 if { /**/ }
 // <- keyword.control

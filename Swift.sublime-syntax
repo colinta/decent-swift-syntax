@@ -94,7 +94,7 @@ contexts:
     - match: '"'
       push: string_double
 ###################################################### MODIFIERS
-    - match: \b(weak|lazy|convenience|public|internal|private|fileprivate|final|static|override|required|prefix|postfix|infix)\b
+    - match: \b(weak|lazy|mutating|convenience|public|internal|private|fileprivate|final|static|override|required|prefix|postfix|infix)\b
       scope: storage.modifier
     - match: '@\w+'
       scope: storage.type.decorator

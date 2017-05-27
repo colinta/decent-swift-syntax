@@ -137,6 +137,8 @@ contexts:
 ######################################################
   comment_block:
     - meta_scope: comment.block
+    - match: /\*
+      push: comment_block
     - match: \*/
       pop: true
   function_params:

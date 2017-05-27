@@ -80,7 +80,7 @@ contexts:
     - match: \b(import)\b
       scope: keyword.other.import
 ###################################################### CONTROL
-    - match: \b(if|where|else|for|in|while|switch|do|defer)\b
+    - match: \b(if|where|else|for|in|is|as|while|switch|do|defer)\b
       scope: keyword.control
     - match: \b(break|fallthrough|guard|try|catch|throws?|return|case|continue|default)\b
       scope: keyword.control

@@ -130,7 +130,7 @@ contexts:
         1: variable.parameter
     - match: '\b\w+'
       scope: ''
-    - match: '[-+=<>^$#@!~*\\|&?\/.]*'
+    - match: '[-+=<>^$#@!~*\\|&?\/%.]*'
       scope: keyword.operator
     - match: '\('
       push: paren_expr

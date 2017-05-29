@@ -146,7 +146,7 @@ contexts:
     - meta_scope: meta.function meta.toc-list
     - match: '\)'
       pop: true
-   string_double:
+  string_double:
     - meta_scope: string.quoted.double
     - match: \\\(
       scope: punctuation.section.embedded

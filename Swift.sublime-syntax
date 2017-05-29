@@ -151,7 +151,7 @@ contexts:
     - match: \\\(
       scope: punctuation.section.embedded
       set: embedded
-    - match: \\[.ntr0\"']
+    - match: \\[.ntr0\\"']
       scope: constant.character.escape.c
     - match: \\u{[[:xdigit:]]{1,8}}
       # Unicode scalar escape

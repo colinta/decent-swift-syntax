@@ -43,18 +43,16 @@ contexts:
     - match: \bnil\b
       scope: constant.language.nil
 ###################################################### NUMERICS
-    - match: \d+\.\d+
-      scope: constant.numeric.float
-    - match: 0[xX][\da-fA-F]+
-      scope: constant.numeric.hexadecimal
-    - match: 0[oO][0-7]+
-      scope: constant.numeric.octal
-    - match: 0[bB][01]+
-      scope: constant.numeric.binary
-    - match: \d{1,3}(_\d+)*
-      scope: constant.numeric.decimal
-    - match: \d+
-      scope: constant.numeric.decimal
+    - match: \b0[XOB]
+      scope: invalid illegal.invalid
+    - match: '0x([[:xdigit:]][[:xdigit:]_]*)((\.\g<1>)?[pP][-+]?\d[\d_]*)?'
+      scope: constant.numeric.float.hexadecimal
+    - match: 0o[0-7][0-7_]*
+      scope: constant.numeric.integer.octal
+    - match: 0b[01][01_]*
+      scope: constant.numeric.integer.binary
+    - match: '(\d[\d_]*)(\.\g<1>)?([eE][-+]?\g<1>)?'
+      scope: constant.numeric.float.decimal
 ###################################################### TYPES
     # class func
     - match: \b(class)\s+(?=func)

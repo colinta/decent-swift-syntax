@@ -82,7 +82,7 @@ contexts:
 ###################################################### CONTROL
     - match: \b(if|where|else|for|in|is|as|while|switch|do|defer|repeat)\b
       scope: keyword.control
-    - match: \b(break|fallthrough|guard|try|catch|throws?|return|case|continue|default)\b
+    - match: \b(break|fallthrough|guard|try|catch|throws?|rethrows|return|case|continue|default)\b
       scope: keyword.control
     - match: '#(available)\b'
       scope: keyword.control
@@ -146,20 +146,34 @@ contexts:
     - meta_scope: meta.function meta.toc-list
     - match: '\)'
       pop: true
-  string_double:
+   string_double:
     - meta_scope: string.quoted.double
-    - match: '\\\('
+    - match: \\\(
       scope: punctuation.section.embedded
       set: embedded
-    - match: \\.
+    - match: \\[.ntr0\"']
       scope: constant.character.escape.c
+    - match: \\u{[[:xdigit:]]{1,8}}
+      # Unicode scalar escape
+      # feels like this needs a different scope
+      scope: constant.character.escape.c
+    - match: \\
+      scope: invalid.illegal
     - match: '"'
       pop: true
   embedded:
     - include: main
-    - match: '\)'
+    - match: \(
+      push: nested
+    - match: \)
       scope: punctuation.section.embedded
       set: string_double
+  nested:
+    - include: main
+    - match: \(
+      push: nested
+    - match: \)
+      pop: true
   paren_expr:
     - include: main
     - match: '\)'

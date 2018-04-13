@@ -46,13 +46,17 @@ contexts:
     - match: \b0[XOB]
       scope: invalid illegal.invalid
     - match: '0x([[:xdigit:]][[:xdigit:]_]*)((\.\g<1>)?[pP][-+]?\d[\d_]*)?'
-      scope: constant.numeric.float.hexadecimal
+      scope: constant.numeric.hex
     - match: 0o[0-7][0-7_]*
-      scope: constant.numeric.integer.octal
+      scope: constant.numeric.octal
     - match: 0b[01][01_]*
-      scope: constant.numeric.integer.binary
-    - match: '(\d[\d_]*)(\.\g<1>)?([eE][-+]?\g<1>)?'
-      scope: constant.numeric.float.decimal
+      scope: constant.numeric.binary
+    - match: '(\d[\d_]*)(\.\g<1>)([eE][-+]?\g<1>)?'
+      scope: constant.numeric.float
+    - match: '(\d[\d_]*)([eE][-+]?\g<1>)'
+      scope: constant.numeric.float
+    - match: '(\d[\d_]*)'
+      scope: constant.numeric.decimal
 ###################################################### TYPES
     # class func
     - match: \b(class)\s+(?=func)

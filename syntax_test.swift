@@ -34,6 +34,7 @@ nil
 // <- constant.numeric
 // <- constant.numeric.float
 //   ^ constant.numeric
+//   ^^^^^^^ constant.numeric.float
 //  ^ source.swift
 100
 // <- constant.numeric
@@ -41,10 +42,10 @@ nil
 1_000_000
 //   ^ constant.numeric.decimal
 0xDEADBEEF
-// <- constant.numeric.hexadecimal
-//  ^ constant.numeric.hexadecimal
+// <- constant.numeric.hex
+//  ^ constant.numeric.hex
 0xGGGGG
-//  ^ -constant.numeric.hexadecimal
+//  ^ -constant.numeric.hex
 0o12345670
 // <- constant.numeric.octal
 //  ^ constant.numeric.octal

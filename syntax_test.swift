@@ -90,17 +90,17 @@ Color
 UIColor
 // <- support.class
 
-enum Foo { case Value }
+enum Foo1 { case Value }
 // <- keyword.entity
 //   ^ support.class
 //   ^ entity.name.type
-enum Foo : String { case Value }
+enum Foo2 : String { case Value }
 // <- keyword.entity
 //   ^ support.class
 //   ^ entity.name.type
-//         ^ support.class
+//          ^ support.class
 
-enum Foo : String {
+enum Foo3 : String {
   case Value
 //  ^ keyword.control
 }
@@ -131,42 +131,42 @@ continue
 default
 // <- keyword.control
 
-enum Foo
+enum Foo4
 // <- keyword.entity
 //   ^ support.class
-enum Foo : Bar {}
+enum Foo5 : Bar {}
 // <- keyword.entity
 //   ^ support.class
-//         ^ support.class
-struct Foo
+//          ^ support.class
+struct Foo6
 // <- keyword.entity
 //     ^ support.class
-struct Foo : Bar
-//         ^ -invalid
-//           ^ -invalid
+struct Foo7 : Bar
+//          ^ -invalid
+//            ^ -invalid
+//            ^ support.class
+class Foo8
+// <- keyword.entity
+//    ^ support.class
+class Foo9 : Bar {}
+// <- keyword.entity
+//    ^ support.class
 //           ^ support.class
-class Foo
-// <- keyword.entity
-//    ^ support.class
-class Foo : Bar {}
-// <- keyword.entity
-//    ^ support.class
-//          ^ support.class
-protocol Foo
+protocol Foo10
 // <- keyword.entity
 //       ^ support.class
-protocol Foo : Bar {}
+protocol Foo11 : Bar {}
 // <- keyword.entity
 //       ^ support.class
-//             ^ support.class
-extension Foo
+//               ^ support.class
+extension Foo12
 // <- keyword.entity
 //        ^ support.class
-extension Foo : Bar
+extension Foo13 : Bar
 // <- keyword.entity
 //        ^ support.class
-//            ^ keyword.operator
-//              ^ support.class
+//              ^ keyword.operator
+//                ^ support.class
 
 func foo()
 //   ^ variable.function

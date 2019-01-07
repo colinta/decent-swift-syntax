@@ -9,7 +9,6 @@
 //  ^ punctuation.definition.comment
 //       ^ meta.toc-list
 
-
 /* comment */
 //  ^comment.block
 /* 000 */
@@ -90,18 +89,18 @@ Color
 UIColor
 // <- support.class
 
-enum Foo1 { case Value }
+enum Foo1 { case value }
 // <- keyword.entity
 //   ^ support.class
 //   ^ entity.name.type
-enum Foo2 : String { case Value }
+enum Foo2 : String { case value }
 // <- keyword.entity
 //   ^ support.class
 //   ^ entity.name.type
 //          ^ support.class
 
 enum Foo3 : String {
-  case Value
+  case value
 //  ^ keyword.control
 }
 
@@ -114,7 +113,7 @@ for {}
 while true {}
 // <- keyword.control
 //    ^ constant
-switch foo { case .Bar: }
+switch foo { case .bar: }
 // <- keyword.control
 //           ^ keyword.control
 break
@@ -138,31 +137,37 @@ enum Foo5 : Bar {}
 // <- keyword.entity
 //   ^ support.class
 //          ^ support.class
-struct Foo6
+enum Foo6 { indirect case foo(Foo6) }
+// <- keyword.entity
+//   ^ support.class
+//          ^ storage.modifier
+//                   ^ keyword.control
+//                            ^ support.class
+struct Foo7
 // <- keyword.entity
 //     ^ support.class
-struct Foo7 : Bar
+struct Foo8 : Bar
 //          ^ -invalid
 //            ^ -invalid
 //            ^ support.class
-class Foo8
+class Foo9
 // <- keyword.entity
 //    ^ support.class
-class Foo9 : Bar {}
+class Foo10 : Bar {}
 // <- keyword.entity
 //    ^ support.class
 //           ^ support.class
-protocol Foo10
+protocol Foo11
 // <- keyword.entity
 //       ^ support.class
-protocol Foo11 : Bar {}
+protocol Foo12 : Bar {}
 // <- keyword.entity
 //       ^ support.class
 //               ^ support.class
-extension Foo12
+extension Foo13
 // <- keyword.entity
 //        ^ support.class
-extension Foo13 : Bar
+extension Foo14 : Bar
 // <- keyword.entity
 //        ^ support.class
 //              ^ keyword.operator
@@ -179,11 +184,15 @@ func foo() { foo }
 //   ^ variable.function
 //       ^ meta.function
 
-
 func foo(a, b: String) { foo }
 //   ^ variable.function
 //       ^ meta.function
 //          ^ variable.parameter
+
+func foo(a: inout String) { foo }
+//   ^ variable.function
+//       ^ variable.parameter
+//          ^ storaage.modifier
 
 "foo"
 // <- string
@@ -208,16 +217,16 @@ func foo(a, b: String) { foo }
 //     ^ -string
 //                     ^ -punctuation.section
 
-a = (.Foo(.bahr))
+a = (.foo(.bar))
 //    ^ constant.language.enum
 //         ^ constant.language.enum
 
-.Foo+.Bar
- // <- constant.language.enum
+.foo+.bar
+// <- constant.language.enum
 //  ^ -constant.language.enum
 //    ^ constant.language.enum
 
-a.Foo + a?.bar()
+a.foo + a?.bar()
 // <- -constant.language.enum
 //^ -constant.language.enum
 //         ^ -constant.language.enum

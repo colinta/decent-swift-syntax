@@ -93,6 +93,8 @@ contexts:
       captures:
         1: keyword.variable
 ###################################################### STRING
+    - match: '"""'
+      push: string_multiline
     - match: '"'
       push: string_double
 ###################################################### MODIFIERS
@@ -147,6 +149,21 @@ contexts:
     - include: main
     - meta_scope: meta.function meta.toc-list
     - match: '\)'
+      pop: true
+  string_multiline:
+    - meta_scope: string.quoted.double
+    - match: \\\(
+      scope: punctuation.section.embedded
+      set: embedded
+    - match: \\[ntr0\\"']
+      scope: constant.character.escape.c
+    - match: \\u{[[:xdigit:]]{1,8}}
+      scope: constant.character.escape.c
+    - match: \\\n
+      scope: constant.character.escape.c
+    - match: \\
+      scope: invalid.illegal
+    - match: '"""'
       pop: true
   string_double:
     - meta_scope: string.quoted.double

@@ -1,4 +1,4 @@
-//  SYNTAX TEST "Packages/Swift-for-f-ing-sublime/Swift.sublime-syntax"
+//  SYNTAX TEST "Packages/Decent-Swift-Syntax/Swift.sublime-syntax"
 
 // comment
 //  ^ comment.line

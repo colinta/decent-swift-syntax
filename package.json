@@ -1,12 +1,12 @@
 {
-  "name": "Swift for F*ing Sublime",
+  "name": "Decent Swift Syntax",
   "description": "Swift language grammar that doesn't suck.",
   "author": "Colin T.A. Gray (colinta)",
-  "details": "https://github.com/colinta/Swift-for-f-ing-sublime",
+  "details": "https://github.com/colinta/decent-swift-syntax",
   "labels": ["language syntax"],
   "releases": [
     {
-      "details": "https://github.com/colinta/Swift-for-f-ing-sublime/tags",
+      "details": "https://github.com/colinta/decent-swift-syntax/tags",
       "sublime_text": ">=3084"
     }
   ]

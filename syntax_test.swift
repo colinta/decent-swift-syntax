@@ -156,7 +156,7 @@ class Foo9
 class Foo10 : Bar {}
 // <- keyword.entity
 //    ^ support.class
-//           ^ support.class
+//            ^ support.class
 protocol Foo11
 // <- keyword.entity
 //       ^ support.class
@@ -192,7 +192,7 @@ func foo(a, b: String) { foo }
 func foo(a: inout String) { foo }
 //   ^ variable.function
 //       ^ variable.parameter
-//          ^ storaage.modifier
+//          ^ storage.modifier
 
 "foo"
 // <- string

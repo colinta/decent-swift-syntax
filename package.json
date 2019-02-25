@@ -2,6 +2,7 @@
   "name": "Decent Swift Syntax",
   "description": "Swift language grammar that doesn't suck.",
   "author": "Colin T.A. Gray (colinta)",
+  "license": "MIT",
   "details": "https://github.com/colinta/decent-swift-syntax",
   "labels": ["language syntax"],
   "releases": [

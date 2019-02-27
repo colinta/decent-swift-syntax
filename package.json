@@ -1,5 +1,6 @@
 {
   "name": "Decent Swift Syntax",
+  "previous_names": ["Swift for F*ing Sublime"],
   "description": "Swift language grammar that doesn't suck.",
   "author": "Colin T.A. Gray (colinta)",
   "license": "MIT",

@@ -184,15 +184,15 @@ func foo() { foo }
 //   ^ variable.function
 //       ^ meta.function
 
-func foo(a, b: String) { foo }
+func foo(abc, def: String) { foo }
 //   ^ variable.function
 //       ^ meta.function
-//          ^ variable.parameter
+//            ^ variable.parameter
 
-func foo(a: inout String) { foo }
+func foo(abc: inout String) { foo }
 //   ^ variable.function
 //       ^ variable.parameter
-//          ^ storage.modifier
+//            ^ storage.modifier
 
 "foo"
 // <- string
@@ -216,6 +216,21 @@ func foo(a: inout String) { foo }
 //                      ^ punctuation.section
 //     ^ -string
 //                     ^ -punctuation.section
+
+"""f"oo"""
+// <- string
+// <- string.quoted.multiline
+//   ^ string.quoted
+
+#"te"st"#
+// <- string
+// <- string.quoted.raw
+//   ^ string.quoted
+
+##"te"#st"##
+// <- string
+// <- string.quoted.raw
+//     ^ string.quoted
 
 a = (.foo(.bar))
 //    ^ constant.language.enum

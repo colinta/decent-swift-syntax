@@ -95,6 +95,12 @@ contexts:
 ###################################################### STRING
     - match: '"""'
       push: string_multiline
+    - match: '#"'
+      push: string_raw_1
+    - match: '##"'
+      push: string_raw_2
+    - match: '###"'
+      push: string_raw_3
     - match: '"'
       push: string_double
 ###################################################### MODIFIERS
@@ -151,7 +157,7 @@ contexts:
     - match: '\)'
       pop: true
   string_multiline:
-    - meta_scope: string.quoted.double
+    - meta_scope: string.quoted.double string.quoted.multiline
     - match: \\\(
       scope: punctuation.section.embedded
       set: embedded
@@ -164,6 +170,51 @@ contexts:
     - match: \\
       scope: invalid.illegal
     - match: '"""'
+      pop: true
+  string_raw_1:
+    - meta_scope: string.quoted.double string.quoted.raw
+    - match: \\\(
+      scope: punctuation.section.embedded
+      set: embedded
+    - match: \\[ntr0\\"']
+      scope: constant.character.escape.c
+    - match: \\u{[[:xdigit:]]{1,8}}
+      scope: constant.character.escape.c
+    - match: \\\n
+      scope: constant.character.escape.c
+    - match: \\
+      scope: invalid.illegal
+    - match: '"#'
+      pop: true
+  string_raw_2:
+    - meta_scope: string.quoted.double string.quoted.raw
+    - match: \\\(
+      scope: punctuation.section.embedded
+      set: embedded
+    - match: \\[ntr0\\"']
+      scope: constant.character.escape.c
+    - match: \\u{[[:xdigit:]]{1,8}}
+      scope: constant.character.escape.c
+    - match: \\\n
+      scope: constant.character.escape.c
+    - match: \\
+      scope: invalid.illegal
+    - match: '"##'
+      pop: true
+  string_raw_3:
+    - meta_scope: string.quoted.double string.quoted.raw
+    - match: \\\(
+      scope: punctuation.section.embedded
+      set: embedded
+    - match: \\[ntr0\\"']
+      scope: constant.character.escape.c
+    - match: \\u{[[:xdigit:]]{1,8}}
+      scope: constant.character.escape.c
+    - match: \\\n
+      scope: constant.character.escape.c
+    - match: \\
+      scope: invalid.illegal
+    - match: '"###'
       pop: true
   string_double:
     - meta_scope: string.quoted.double

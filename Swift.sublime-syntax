@@ -28,13 +28,12 @@ contexts:
        1: punctuation.definition.preprocessor
        2: meta.preprocessor.c
 ###################################################### ENUMS
-    - match: "(?:[^\\?\\!\\)\\\"\\w]|^)(\\.[a-zA-Z]\\w*)(?=\\()"
+    - match: "(?:[^\\?\\!\\)\\\"\\w]|^)(\\.[a-zA-Z]\\w*)\\("
       captures:
        1: constant.language.enum
       push: enum
     - match: "(?:[^\\?\\!\\)\\\"\\w]|^)(\\.[a-zA-Z]\\w*)"
-      captures:
-       1: constant.language.enum
+      scope: constant.language.enum
 ###################################################### CONSTANTS
     - match: \btrue\b
       scope: constant.language.true
@@ -249,6 +248,7 @@ contexts:
     - match: '\)'
       pop: true
   enum:
+    - meta_scope: internal.enum
     - include: main
     - match: '\)'
       pop: true

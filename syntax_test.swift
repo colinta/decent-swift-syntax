@@ -236,10 +236,10 @@ a = (.foo(.bar))
 //    ^ constant.language.enum
 //         ^ constant.language.enum
 
-.foo+.bar
+.foo + .bar
 // <- constant.language.enum
-//  ^ -constant.language.enum
-//    ^ constant.language.enum
+//   ^ -constant.language.enum
+//     ^ constant.language.enum
 
 a.foo + a?.bar()
 // <- -constant.language.enum

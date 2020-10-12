@@ -1,7 +1,7 @@
 %YAML 1.2
 ---
 name: Swift
-file_extensions: [swift]
+file_extensions: [swift, swiftinterface]
 scope: source.swift
 prototype:
   - include: main

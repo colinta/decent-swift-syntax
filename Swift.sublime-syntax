@@ -25,8 +25,8 @@ contexts:
 ###################################################### PRECOMPILED
     - match: ^\s*(#)(\w+)(.*)$
       captures:
-       1: punctuation.definition.preprocessor
-       2: meta.preprocessor.c
+       1: punctuation.definition.preprocessor meta.preprocessor.swift
+       2: meta.preprocessor.swift
 ###################################################### ENUMS
     - match: "(?:[^\\?\\!\\)\\\"\\w]|^)(\\.[a-zA-Z]\\w*)\\("
       captures:

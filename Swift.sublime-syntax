@@ -97,6 +97,8 @@ contexts:
       scope: keyword.control
     - match: \b(async|await)\b
       scope: keyword.control
+    - match: \b(some|any)\b
+      scope: keyword.control
     - match: '#(available)\b'
       scope: keyword.control
 ###################################################### VARIABLES

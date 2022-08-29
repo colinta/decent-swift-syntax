@@ -85,6 +85,8 @@ contexts:
       scope: keyword.control
     - match: \b(break|fallthrough|guard|try|catch|throws?|rethrows|return|case|continue|default|didSet|willSet|get|set)\b
       scope: keyword.control
+    - match: \b(async|await)\b
+      scope: keyword.control
     - match: '#(available)\b'
       scope: keyword.control
 ###################################################### VARIABLES

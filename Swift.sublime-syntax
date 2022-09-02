@@ -117,7 +117,7 @@ contexts:
     - match: '"'
       push: string_double
 ###################################################### MODIFIERS
-    - match: \b(weak|lazy|mutating|convenience|associatedtype|public|internal|private|fileprivate|final|static|override|required|prefix|postfix|infix|indirect|inout|open|some|any)\b
+    - match: \b(weak|lazy|mutating|convenience|associatedtype|public|internal|private|fileprivate|final|static|override|required|prefix|postfix|infix|indirect|inout|open)\b
       scope: storage.modifier
     - match: '@\w+'
       scope: storage.type.decorator
@@ -136,7 +136,7 @@ contexts:
         1: storage.type.function
         2: entity.name.function variable.function
       push: function_params
-    - match: '\b(deinit|init(\?))\s*\('
+    - match: '\b(deinit|init(\??))\s*\('
       captures:
         1: storage.type.function
         2: entity.name.function variable.function
@@ -145,7 +145,7 @@ contexts:
       captures:
         1: storage.type.function
         2: entity.name.function variable.function
-    - match: \b(func|deinit|init(\?))\b
+    - match: \b(func|deinit|init(\\?))\b
       scope: entity.name.type storage.type.function
 ###################################################### VARIABLES
     - match: '(\w+):'

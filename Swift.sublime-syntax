@@ -14,6 +14,16 @@ contexts:
       captures:
         1: punctuation.definition.comment
         2: meta.toc-list
+    - match: (//+\s+TODO:) ?(.*)
+      scope: comment.line
+      captures:
+        1: punctuation.definition.comment
+        2: meta.toc-list
+    - match: (//+\s+FIXME:) ?(.*)
+      scope: comment.line
+      captures:
+        1: punctuation.definition.comment
+        2: meta.toc-list
     - match: (//+).*(\n|$)
       scope: comment.line
       captures:
@@ -87,6 +97,8 @@ contexts:
       scope: keyword.control
     - match: \b(async|await)\b
       scope: keyword.control
+    - match: \b(some|any)\b
+      scope: keyword.control
     - match: '#(available)\b'
       scope: keyword.control
 ###################################################### VARIABLES
@@ -124,7 +136,7 @@ contexts:
         1: storage.type.function
         2: entity.name.function variable.function
       push: function_params
-    - match: '\b(deinit|init)\s*\('
+    - match: '\b(deinit|init(\??))\s*\('
       captures:
         1: storage.type.function
         2: entity.name.function variable.function
@@ -133,7 +145,7 @@ contexts:
       captures:
         1: storage.type.function
         2: entity.name.function variable.function
-    - match: \b(func|deinit|init)\b
+    - match: \b(func|deinit|init(\??))\b
       scope: entity.name.type storage.type.function
 ###################################################### VARIABLES
     - match: '(\w+):'

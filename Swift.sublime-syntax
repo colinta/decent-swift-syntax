@@ -145,7 +145,7 @@ contexts:
       captures:
         1: storage.type.function
         2: entity.name.function variable.function
-    - match: \b(func|deinit|init(\\?))\b
+    - match: \b(func|deinit|init(\??))\b
       scope: entity.name.type storage.type.function
 ###################################################### VARIABLES
     - match: '(\w+):'

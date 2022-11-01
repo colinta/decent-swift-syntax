@@ -173,7 +173,7 @@ contexts:
     - meta_scope: string.quoted.double string.quoted.multiline
     - match: \\\(
       scope: punctuation.section.embedded
-      set: embedded
+      set: embedded_multiline
     - match: \\[ntr0\\"']
       scope: constant.character.escape.c
     - match: \\u{[[:xdigit:]]{1,8}}
@@ -188,7 +188,7 @@ contexts:
     - meta_scope: string.quoted.double string.quoted.raw
     - match: \\\(
       scope: punctuation.section.embedded
-      set: embedded
+      set: embedded_raw_1
     - match: \\[ntr0\\"']
       scope: constant.character.escape.c
     - match: \\u{[[:xdigit:]]{1,8}}
@@ -203,7 +203,7 @@ contexts:
     - meta_scope: string.quoted.double string.quoted.raw
     - match: \\\(
       scope: punctuation.section.embedded
-      set: embedded
+      set: embedded_raw_2
     - match: \\[ntr0\\"']
       scope: constant.character.escape.c
     - match: \\u{[[:xdigit:]]{1,8}}
@@ -218,7 +218,7 @@ contexts:
     - meta_scope: string.quoted.double string.quoted.raw
     - match: \\\(
       scope: punctuation.section.embedded
-      set: embedded
+      set: embedded_raw_3
     - match: \\[ntr0\\"']
       scope: constant.character.escape.c
     - match: \\u{[[:xdigit:]]{1,8}}
@@ -233,7 +233,7 @@ contexts:
     - meta_scope: string.quoted.double
     - match: \\\(
       scope: punctuation.section.embedded
-      set: embedded
+      set: embedded_double
     - match: \\[ntr0\\"']
       scope: constant.character.escape.c
     - match: \\u{[[:xdigit:]]{1,8}}
@@ -244,13 +244,41 @@ contexts:
       scope: invalid.illegal
     - match: '"'
       pop: true
-  embedded:
+  embedded_double:
     - include: main
     - match: \(
       push: nested
     - match: \)
       scope: punctuation.section.embedded
       set: string_double
+  embedded_multiline:
+    - include: main
+    - match: \(
+      push: nested
+    - match: \)
+      scope: punctuation.section.embedded
+      set: string_multiline
+  embedded_raw_1:
+    - include: main
+    - match: \(
+      push: nested
+    - match: \)
+      scope: punctuation.section.embedded
+      set: string_raw_1
+  embedded_raw_2:
+    - include: main
+    - match: \(
+      push: nested
+    - match: \)
+      scope: punctuation.section.embedded
+      set: string_raw_2
+  embedded_raw_3:
+    - include: main
+    - match: \(
+      push: nested
+    - match: \)
+      scope: punctuation.section.embedded
+      set: string_raw_3
   nested:
     - include: main
     - match: \(

@@ -66,7 +66,7 @@ where { /**/ }
 #if FOO
 // <- punctuation.definition.preprocessor
 #endif
-//  ^ meta.preprocessor.c
+//  ^ source.swift punctuation.definition.preprocessor meta.preprocessor.swift
 
 if a || b
 // <- keyword
@@ -218,9 +218,19 @@ func foo(abc: inout String) { foo }
 //                     ^ -punctuation.section
 
 """f"oo"""
-// <- string
 // <- string.quoted.multiline
 //   ^ string.quoted
+
+"""
+f"oo\("bar")
+// <- string
+// <- string.quoted.multiline
+//  ^ punctuation.section.embedded
+//     ^ string.quoted.double
+//         ^ punctuation.section.embedded
+"""
+.bar
+// <- constant.language.enum
 
 #"te"st"#
 // <- string

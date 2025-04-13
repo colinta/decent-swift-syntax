@@ -1,13 +1,13 @@
 {
   "name": "Decent Swift Syntax",
-  "previous_names": [
-    "Swift for F*ing Sublime"
-  ],
+  "details": "https://github.com/colinta/decent-swift-syntax",
   "description": "Swift language grammar that doesn't suck.",
   "author": "Colin T.A. Gray (colinta)",
-  "details": "https://github.com/colinta/decent-swift-syntax",
   "labels": [
     "language syntax"
+  ],
+  "previous_names": [
+    "Swift for F*ing Sublime"
   ],
   "releases": [
     {
